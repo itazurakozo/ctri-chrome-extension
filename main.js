@@ -26,7 +26,7 @@ async function getChuckData() {
     }
   }
   
-  let chuckData = getChuckData()
+  let chuckData = ''
   
   function chuckHTML () {
     return `
