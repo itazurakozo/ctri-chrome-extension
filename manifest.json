@@ -5,7 +5,7 @@
     "description": "deletes container",
     "content_scripts": [
         {
-          "matches": ["https://www.youtube.com/*"],
+          "matches": ["<all_urls>"],
           "js": ["./main.js"]
         }
       ]
