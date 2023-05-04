@@ -1,5 +1,18 @@
+var style = document.createElement('link');
+style.rel = 'stylesheet';
+style.type = 'text/css';
+style.href = chrome.extension.getURL('myStyles.css');
+(document.head||document.documentElement).appendChild(style);
+
 const contents = document.body;
-// contents.parentNode.removeChild(contents);
+contents.innerHTML = ''
+
+const title = document.createElement('div')
+title.innerText = `WE HEARD YOU LIKE APIS`
+title.setAttribute('class', 'large')
+contents.appendChild(title)
+document.body.style.backgroundImage = `url("https://i.gifer.com/origin/0d/0d96b6d4129216425ab3f9f395eee0b1.gif")`
+
 console.log("hello")
 
 let kayneData = ''
@@ -20,6 +33,7 @@ function kayneQuote (data) {
     return `
     <div class="kayne">
         <h1> The word of Yeezus </h1>
+        <img src='https://media.tenor.com/-OpJG9GeK3EAAAAC/kanye-west-stare.gif'/>
         <h2>${data.quote}</h2>
     </div>
     `
@@ -34,7 +48,8 @@ async function fbi() {
   fbiData = data.items
   console.log(fbiData)
   const fbiParent = document.createElement('div')
-  fbiParent.innerHTML = `<h1>FBI's LIST OF PEOPLE THAT THEY WANT... MOST</h1>`
+  fbiParent.setAttribute('class', 'flexchild')
+  
   document.body.appendChild(fbiParent)
   
   fbiHTML()
@@ -46,11 +61,11 @@ async function fbi() {
 fbi()
 
 function fbiHTML () {
-  const mapped = fbiData.map((ele, index) => {
+  const mapped = fbiData.slice(0,1).map((ele, index) => {
     const fbiDiv = document.createElement('div')
     fbiDiv.innerHTML = `
     <div class = "starWars">
-      
+    <h1>FBI WANTED RANDOM</h1>
       <h2>${ele.title}</h2>
       <h2>${ele.remarks}</h2>
       <h2>${ele.description}</h2>
